@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "express": "^4.19.2"
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3"
   },
   "scripts": {
     "start": "node index.js",
     "test": "jest"
   },
   "devDependencies": {
-    "jest": "^27.5.1",
-    "@testing-library/user-event": "^13.5.0" 
+    "@testing-library/user-event": "^13.5.0",
+    "jest": "^27.5.1"
   }
 }

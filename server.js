@@ -1,11 +1,19 @@
 const express = require('express');
 const DogTPR = require('./utils/dogTPR');
 const CatTPR = require('./utils/catTPR');
+const connectDB = require('./db');
+const cors = require('cors');
+const tprRoutes = require('./routes/tpr');
 
 const app = express();
-const port = 5000;
+const port = 3005;
+
+connectDB();
 
 app.use(express.json());
+app.use(cors());
+
+app.use('/api', tprRoutes);
 
 // Route for dog data
 app.get('/dog', (req, res) => {
