@@ -31,18 +31,22 @@ node server.js
 ```
 
 ## API Endpoints
+
+### Check Dog TPR
+
 - **Endpoint:** `GET /dog`
-- **Description:** This endpoint will check the tpr of the dog and send you back a message based on the stats.
+- **Description:** This endpoint checks the TPR (Temperature, Pulse, Respiration) of a dog and returns a message based on the provided stats.
+
 - **Query Parameters:**
-    - `temperature`(number) - the dog's' temperature
-    - `pulse`(number) - the dog's pulse
-    - `respiration`(number) - the dog's respiration
-    - `size`(number) - the weight of the dog
-    - `petId`(string) - the ID of that specific dog
-- **Example Request**
-```bash
-    GET /dog?temperature=101.5&pulse=120&respiration=30&size=30&petId=12345
-```
+  - `temperature` (number): The dog's temperature.
+  - `pulse` (number): The dog's pulse rate.
+  - `respiration` (number): The dog's respiration rate.
+  - `size` (number): The weight of the dog.
+  - `petId` (string): The ID of the specific dog.
+
+- **Example Request:**
+  ```bash
+  GET /dog?temperature=101.5&pulse=120&respiration=30&size=30&petId=12345
 
 
 Endpoint: `GET /cat
