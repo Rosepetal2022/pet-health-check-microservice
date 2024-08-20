@@ -5,7 +5,7 @@ const TPRSchema = new mongoose.Schema({
     temperature: { type: Number, required: true },
     pulse: { type: Number, required: true },
     respiration: { type: Number, required: true },
-    size: { type: Number, required: true }, // only applicable to dogs
+    size: { type: Number, required: false }, 
     date: { type: Date, default: Date.now }
 });
 

@@ -1,4 +1,6 @@
 class DogTPR {
+    // Dog class to check the temp, pulse and respiration based on size of the dog
+    // has a checkTemp method, checkPulse method and checkResp method for these purposes
     constructor(temperature, pulse, resipiration, size) {
         this.temperature = temperature;
         this.pulse = pulse;

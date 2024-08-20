@@ -13,6 +13,7 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 
+// routes to check the tpr stats
 app.use('/api', tprRoutes);
 
 // Route for dog data
@@ -25,11 +26,15 @@ app.get('/dog', (req, res) => {
 
     const dog = new DogTPR(parseFloat(temperature), parseFloat(pulse), parseFloat(respiration), parseFloat(size));
 
-    res.json({
-       temperature: dog.checkTemp(),
-       pulse: dog.checkPulse(),
-       respiration: dog.checkResp()
-    });
+    const result = {
+        temperature: dog.checkTemp(),
+        pulse: dog.checkPulse(),
+        respiration: dog.checkResp()
+    };
+
+    console.log('Successfully processed dog data:', result);
+    res.json(result);
+    
 });
 
 // Route for cat data
@@ -42,11 +47,14 @@ app.get('/cat', (req, res) => {
 
     const cat = new CatTPR(parseFloat(temperature), parseFloat(pulse), parseFloat(respiration));
 
-    res.json({
+    const result = {
         temperature: cat.checkTemp(),
-        pulse: cat.pulse(),
-        respiration: dog.checkResp()
-    });
+        pulse: cat.checkPulse(),
+        respiration: cat.checkResp()
+    };
+
+    console.log('Successfully processed cat data:', result);
+    res.json(result);
 });
 
 app.listen(port, () => {

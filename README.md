@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Pet Health Check Microservice
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This microservice provides functionality for tracking and managing pet health metrics, including Temperature, Pulse, and Respiration (TPR). It is currently available for dogs and cats.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **TPR Tracking:** Allows for input and retrieval of Temperature, Pulse, and Respiration data for pets.
+- **Pet Size Adjustment:** Takes into account the size of the dog for accurate health monitoring. There is no size adjustment for cats.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Backend:** Node.js, Express
+- **Database:** MongoDB Atlas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. **Clone the repository**
+```bash
+git clone https://github.com/Rosepetal2022/pet-health-check-microservice.git
+cd pet-health-check-microservice
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies
+```bash
+ npm install
+ ```
 
-### `npm run build`
+3. Start Service
+```bash
+node server.js
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API Endpoints
+Endpoint: `GET /dog`
+Description: This endpoint will check the tpr of the dog and send you back a message based on the stats.
+Query Parameters:
+    + `temperature`(number) - the dog's' temperature
+    + `pulse`(number) - the dog's pulse
+    + `respiration`(number) - the dog's respiration
+    + `size`(number) - the weight of the dog
+    + `petId`(string) - the ID of that specific dog
+Example Request
+```bash
+    GET /dog?temperature=101.5&pulse=120&respiration=30&size=30&petId=12345
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Endpoint: `GET /cat
+Description: This endpoint will check the tpr of the cat and send you back a message based on the stats.
+Query Parameters:
+    + `temperature`(number) - the cat's' temperature
+    + `pulse`(number) - the cat's pulse
+    + `respiration`(number) - the cat's respiration
+    + `petId`(string) - the ID of that specific cat
+Example Request
+```bash
+    GET /cat?temperature=101.5&pulse=120&respiration=30&&petId=12345
+```
 
-### `npm run eject`
+Endpoint: `POST api/save-tpr`
+Description: This endpoint will save the tpr data for a dog based on the petId.
+Request Body:
+```bash
+{
+  "temperature": "number",
+  "pulse": "number",
+  "respiration": "number",
+  "size": "number",
+  "petId": "string"
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Endpoint: `POST api/save-tpr/cat`
+Description: This endpoint will save the data for a cat based on the petId.
+Request Body:
+```bash
+{
+  "temperature": "number",
+  "pulse": "number",
+  "respiration": "number",
+  "petId": "string"
+}
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Endpoint: `GET api/get-tpr/:petId`
+Description: This endpoint will retrieve the data for an animal based on the petId.
+URL Parameters: `petId` - the id of the pet the TPR data is being requested.
+Response:
+```bash
+    [
+  {
+    "petId": "12345",
+    "temperature": 101.5,
+    "pulse": 120,
+    "respiration": 30,
+    "date": "2024-08-20T14:30:00Z"
+  },
+  {
+    "petId": "12345",
+    "temperature": 101.2,
+    "pulse": 118,
+    "respiration": 28,
+    "date": "2024-08-19T09:15:00Z"
+  }
+]
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+For questions for support, please contact: 
++ **Email** marcotter25@yahoo.com
++ **GitHub** [Rosepetal2022](https://github.com/Rosepetal2022)

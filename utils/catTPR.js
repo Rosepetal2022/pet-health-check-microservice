@@ -1,4 +1,6 @@
 class CatTPR {
+    // Cat class to get compare temperature, pulse, and respiration.
+    // has a checkTemp method, checkPulse method, and checkResp method for these purposes.
     constructor(temperature, pulse, respiration) {
         this.temperature = temperature;
         this.pulse = pulse;
