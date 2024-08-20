@@ -31,15 +31,15 @@ node server.js
 ```
 
 ## API Endpoints
-Endpoint: `GET /dog`
-Description: This endpoint will check the tpr of the dog and send you back a message based on the stats.
-Query Parameters:
-    + `temperature`(number) - the dog's' temperature
-    + `pulse`(number) - the dog's pulse
-    + `respiration`(number) - the dog's respiration
-    + `size`(number) - the weight of the dog
-    + `petId`(string) - the ID of that specific dog
-Example Request
+- **Endpoint:** `GET /dog`
+- **Description:** This endpoint will check the tpr of the dog and send you back a message based on the stats.
+- **Query Parameters:**
+    - `temperature`(number) - the dog's' temperature
+    - `pulse`(number) - the dog's pulse
+    - `respiration`(number) - the dog's respiration
+    - `size`(number) - the weight of the dog
+    - `petId`(string) - the ID of that specific dog
+- **Example Request**
 ```bash
     GET /dog?temperature=101.5&pulse=120&respiration=30&size=30&petId=12345
 ```
